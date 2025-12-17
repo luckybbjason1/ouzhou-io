@@ -1,22 +1,11 @@
 {
-  "version": 2,
-  "buildCommand": "echo 'No build needed'",
-  "outputDirectory": "dist",
-  "installCommand": "echo 'No install needed'",
-  "framework": null,
-  "routes": [
+  "buildCommand": "cd web && npm install --legacy-peer-deps && npm run build",
+  "outputDirectory": "web/dist",
+  "installCommand": "echo 'Skip install'",
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
-      "headers": {
-        "cache-control": "s-maxage=31536000,immutable"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
-  ],
-  "github": {
-    "silent": true
-  }
+  ]
 }
